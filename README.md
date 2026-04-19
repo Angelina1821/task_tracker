@@ -19,3 +19,22 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 uvicorn app.main:app --reload
 
 Открыть: http://localhost:8000/docs
+
+__________
+#Тестирование
+
+## 1. Установка
+
+```bash
+pip install pytest pytest-cov httpx
+
+##2. Создание тестовой бд
+```bash
+docker exec -it task_tracker_db psql -U postgres -c "CREATE DATABASE task_tracker_test;"
+
+## 3. Запуск тестов
+```bash
+pytest -v
+
+
+
