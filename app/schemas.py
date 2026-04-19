@@ -39,7 +39,7 @@ class TaskResponse(BaseModel):
     user_id: int
     categ_id: Optional[int] = None
     created: Optional[datetime]
-    deadline: datetime
+    deadline: Optional[datetime] = None
     status_id: Optional[int]
     title: str
     descr: Optional[str]
