@@ -6,7 +6,7 @@ class UserCreate(BaseModel):
     name: str = Field(..., max_length=100)
     login: str = Field(..., max_length=30)
     password: str = Field(..., min_length=6)
-    role_id: int = 2
+    role_id: int = 2 #user
 
 class UserLogin(BaseModel):
     login: str
@@ -16,7 +16,7 @@ class UserResponse(BaseModel):
     user_id: int
     name: str
     login: str
-    role_id: str
+    role_id: int
     last_active: Optional[datetime]
 
     model_config = ConfigDict(from_attributes=True)
@@ -32,12 +32,12 @@ class TaskUpdate(BaseModel):
     deadline: Optional[datetime] = None
     descr: Optional[str] = None
     categ_id: Optional[int] = None
-    status_id = Optional[int] = None
+    status_id: Optional[int] = None
 
 class TaskResponse(BaseModel):
     task_id: int
     user_id: int
-    categ_id: int
+    categ_id: Optional[int] = None
     created: Optional[datetime]
     deadline: datetime
     status_id: Optional[int]
@@ -56,8 +56,8 @@ class CategoryResponse(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
 class Token(BaseModel):
-    acsess_token:str
-    tocken_type: str
+    access_token:str
+    token_type: str
 
 class TokenData(BaseModel):
     login: str
